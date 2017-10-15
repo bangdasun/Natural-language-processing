@@ -2,7 +2,7 @@ def shift(stack, buff,  dgraph):
     # TODO
     # raise NotImplementedError
 	
-	# move the top value from buff and push into stack
+    # move the top value from buff and push into stack
     i = buff.pop()
     stack.append(i)
     
@@ -11,8 +11,8 @@ def left_arc(stack, buff, dgraph):
     # TODO
     # raise NotImplementedError
     
-	# stack[i, j => stack[j , get arc i <- j 
-	j = stack.pop()
+    # stack[i, j => stack[j , get arc i <- j 
+    j = stack.pop()
     i = stack.pop()
     stack.append(j)
     dgraph.append((i, j))
@@ -22,7 +22,7 @@ def right_arc(stack, buff, dgraph):
     # TODO
     # raise NotImplementedError 
 	
-	# stack[i, j => stack[i , get arc i -> j
+    # stack[i, j => stack[i , get arc i -> j
     j = stack.pop()
     i = stack.pop()
     stack.append(i)
@@ -40,7 +40,7 @@ def oracle_std(stack, buff, dgraph, gold_arcs):
         if (i, j) in gold_arcs:
             return 'left_arc'
         elif (j, i) in gold_arcs:
-			# all gold arcs in gold_arcs involving j as governor are already in dgraph: return 'right'
+            # all gold arcs in gold_arcs involving j as governor are already in dgraph: return 'right'
             head_w_j = []
             [head_w_j.append(a) for a in gold_arcs if a[1] == j]                
             for hwj in head_w_j:
